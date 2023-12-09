@@ -1,36 +1,5 @@
 /* eslint-disable no-unused-vars */
-exports.Voos = class Voos {
-  constructor (options) {
-    this.options = options || {};
-  }
+const { Service } = require('feathers-sequelize')
 
-  async find (params) {
-    return [];
-  }
-
-  async get (id, params) {
-    return {
-      id, text: `A new message with ID: ${id}!`
-    };
-  }
-
-  async create (data, params) {
-    if (Array.isArray(data)) {
-      return Promise.all(data.map(current => this.create(current, params)));
-    }
-
-    return data;
-  }
-
-  async update (id, data, params) {
-    return data;
-  }
-
-  async patch (id, data, params) {
-    return data;
-  }
-
-  async remove (id, params) {
-    return { id };
-  }
+exports.Voos = class Voos extends Service {
 };

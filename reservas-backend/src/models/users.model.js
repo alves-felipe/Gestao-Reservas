@@ -37,7 +37,7 @@ module.exports = function (app) {
     } = models
     console.log(roles)
 
-    users.belongsTo(roles, { foreignKey: 'role_id' })
+    users.belongsTo(roles)
   }
 
   return users

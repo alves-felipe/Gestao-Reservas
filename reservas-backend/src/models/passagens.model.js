@@ -24,11 +24,13 @@ module.exports = function (app) {
     // Define associations here
     // See https://sequelize.org/master/manual/assocs.html
     const {
-      voos
+      voos,
+      users
     } = models
 
     
     passagens.belongsTo(voos, { foreignKey: 'voo_id' })
+    passagens.belongsTo(users, { foreignKey: 'user_id' })
   }
 
   return passagens

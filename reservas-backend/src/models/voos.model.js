@@ -37,11 +37,11 @@ module.exports = function (app) {
     // Define associations here
     // See https://sequelize.org/master/manual/assocs.html
     const {
-      voos
+      aeroportos
     } = models
 
-    voos.belongsTo(voos, { foreignKey: 'origem' })
-    voos.belongsTo(voos, { foreignKey: 'destino' })
+    voos.belongsTo(aeroportos, { foreignKey: 'origem' })
+    voos.belongsTo(aeroportos, { foreignKey: 'destino' })
   }
 
   return voos

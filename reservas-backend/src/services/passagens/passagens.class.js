@@ -1,36 +1,15 @@
-/* eslint-disable no-unused-vars */
-exports.Passagens = class Passagens {
-  constructor (options) {
-    this.options = options || {};
-  }
+const { Service } = require('feathers-sequelize')
+const sequelize = require('sequelize')
 
-  async find (params) {
-    return [];
-  }
-
-  async get (id, params) {
-    return {
-      id, text: `A new message with ID: ${id}!`
-    };
-  }
-
-  async create (data, params) {
-    if (Array.isArray(data)) {
-      return Promise.all(data.map(current => this.create(current, params)));
+exports.Passagens = class Passagens extends Service {
+    constructor (options, app) {
+        super(options);
+        this.options = options || {};
+        this.app = app || {};
+      }
+    async find(params) {
+        const sequelize = this.app.get('sequelizeClient');
+        const ok = await sequelize.query('CALL relatorio()');
+        return ok;
     }
-
-    return data;
-  }
-
-  async update (id, data, params) {
-    return data;
-  }
-
-  async patch (id, data, params) {
-    return data;
-  }
-
-  async remove (id, params) {
-    return { id };
-  }
 };

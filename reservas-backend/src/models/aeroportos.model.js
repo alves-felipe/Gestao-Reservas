@@ -24,12 +24,12 @@ module.exports = function (app) {
     // Define associations here
     // See https://sequelize.org/master/manual/assocs.html
 
-    const {
-      voos
-    } = models
+    // const {
+    //   voos
+    // } = models
 
     
-    aeroportos.hasOne(voos)
+    // aeroportos.hasOne(voos)
     
   }
 
